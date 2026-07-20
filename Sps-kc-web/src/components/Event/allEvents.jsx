@@ -45,7 +45,7 @@ function EventCard({ event, index }) {
   );
 }
 
-function EventCarousel({ title, subtitle, events }) {
+function EventCarousel({ title, events }) {
   const settings = useMemo(
     () => ({
       dots: false,
@@ -103,7 +103,6 @@ function EventCarousel({ title, subtitle, events }) {
       <section className="events-block">
         <div className="events-block__heading">
           <h2>{title}</h2>
-          <p>{subtitle}</p>
         </div>
         <div className="events-empty">No events available right now.</div>
       </section>
@@ -114,7 +113,6 @@ function EventCarousel({ title, subtitle, events }) {
     <section className="events-block">
       <div className="events-block__heading">
         <h2>{title}</h2>
-        <p>{subtitle}</p>
       </div>
       <div className="events-carousel">
         <Slider {...settings}>
@@ -204,13 +202,11 @@ export default function AllEvents() {
         <div className="events-shell">
           <EventCarousel
             title="Upcoming Events"
-            subtitle="New programs and announcements appear here first."
             events={upcomingEvents}
           />
 
           <EventCarousel
             title="Past Events"
-            subtitle="A rotating archive of chapter activities and posters."
             events={pastEvents.length ? pastEvents : events}
           />
         </div>
